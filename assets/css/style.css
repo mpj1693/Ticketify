@@ -1,0 +1,10 @@
+body {
+  background-image: url("https://open.scdn.co/static/images/concert-hub-header.png")
+}
+
+header {
+  background-color: rgb(65, 62, 62);opacity: 0.7;
+  font-family: fantasy;
+  font-weight: bold;
+
+}
