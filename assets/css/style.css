@@ -1,10 +1,192 @@
-body {
-  background-image: url("https://open.scdn.co/static/images/concert-hub-header.png")
+html { 
+  background: url(../img/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-left: 300px;
+  padding-right: 300px;
+  margin-top: 50px;
+  opacity: 0.8;
+  margin-bottom: 20px;
 }
 
-header {
-  background-color: rgb(65, 62, 62);opacity: 0.7;
-  font-family: fantasy;
-  font-weight: bold;
+body {
+  background-color: #ffffff00;
+}
 
+
+
+.header {
+  background-color: #64ABB8;
+  padding-top: 30px;
+  font-family:'Permanent Marker', cursive;
+  border-style: double;
+  
+  
+  
+}
+
+.lil-header {
+  background-color: black;
+  padding-top: 10px;
+  font-family: sans-serif;
+  border-style: inset;
+  padding-bottom: 10px;
+ 
+
+}
+
+.h1, h1 {
+  font-size: 100px;
+
+}
+
+.h5, h5 {
+  color: gray;
+font-size: 20px;
+}
+
+
+.log-in {
+  color: gray;
+  padding-left: 250px;
+}
+
+
+
+.button {
+  background-color: #4CAF50; 
+  font-size: 16px;
+  
+}
+
+.button1 {
+  background-color: 4CAF50; 
+  padding: 5px 15px;
+  color: black; 
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+ }
+
+ .hide {
+   display: none;
+ }
+ 
+ .spotify-font {
+   font-size: 25px;
+   color: #4CAF50;
+   
+ }
+
+ .input-group>.form-control:not(:first-child) {
+  
+  background-color: black;
+  color: #4CAF50;
+}
+
+.mx-sm-3 {
+  
+  background-color: black;
+  color: #4CAF50;
+}
+
+a:not([href]):not([tabindex]):hover {
+  background: #4CAF50;
+  color: white;
+ 
+}
+
+.zipcode {
+ margin-left: 180px;
+}
+ .search-button {
+   color: white;
+   margin-left: 275px;
+   background-color: #64ABB8;
+
+}
+
+.playlist {
+  margin-left: -150px;
+  padding: 20px;  
+  color: black;
+  padding-top: 10px;
+  }
+
+  .playlist-font {
+    font-size: 20px;
+    font-weight: 800;
+
+  }
+
+  .ticket {
+    margin-right:-180px;
+    padding: 20px;
+    padding-top: 10px;
+  }
+
+  .ticket-font {
+    font-size: 20px;
+    font-weight: 800;
+
+  }
+   .horizontal {
+     padding: 40px;
+     background-color: rgba(0,0,0,.075);
+   }
+
+@media (max-width: 1024px) {
+  
+  .header{
+    padding-right: 350px;
+    padding-left: 50px;
+
+  }
+
+  html {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+  
+  
+
+  h1, h1 {
+    font-size: 80px;
+   text-align: right;
+  }
+
+  
+    
+}
+
+@media (max-width: 480px) {
+
+  .header{
+    padding-right: 250px;
+    padding-left: 50px;
+
+  }
+
+  html {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+
+  h1, h1 {
+    font-size: 50px;
+   
+  }
+  .lil-header {
+    padding-right: 250px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    }
+
+    .log-in{
+      padding-left: 10px;
+    }
+    
+    
 }
