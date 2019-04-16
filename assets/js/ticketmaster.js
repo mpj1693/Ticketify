@@ -3,25 +3,22 @@
 
 uniqueArtistArray;
 
-
-
-
 // set state
 var stateCode = 'NY'
 
-
-//// METHOD B: to avoid "Too Many Requests" 429 error
 //// on click button trigger ajax request at a given interval looping through KeywordArray
 
 // timer id
 var timer;
 
 // On click event to retrive event data from TicketMaster API
-$("#buttons-area").on("click", function () {
+$("#click-for-concerts").on("click", function () {
+
+  console.log(uniqueArtistArray + "Artist in TM")
+  
   // settimeout to run at 2 sec interval
   timer = setTimeout(runAjax, 1000);
 })
-
 
 // index counter for array
 var j = 0;
@@ -35,19 +32,9 @@ function runAjax() {
     success: function (json) {
       console.log(json);
 
-
-      //url working?
-      console.log("artists in tm " + uniqueArtistArray)
-      //console.log("URL: " + url);
-
-
-
       // checking if ticketmaster API has event information for the artist
       if (json.hasOwnProperty('_embedded')) {
         var TMresponse = json._embedded.events
-
-        console.log(TMresponse)
-
 
         //loop through TMresponse array and write each concert on page
         for (var i = 0; i < TMresponse.length; i++) {
@@ -97,6 +84,8 @@ function runAjax() {
             $btnTM = "No Event"
           }
 
+          
+
           console.log($name);
           console.log($venue);
           console.log($date);
@@ -113,18 +102,20 @@ function runAjax() {
             $("<td>").text($priceRangeMin + " - " + $priceRangeMax),
             $("<td>").append($btnTM),
           );
+          // newRow.addClass('table table-dark table-hover')
 
           $("tbody").append(newRow);
         };
 
         // increase index counter
         j++;
-        console.log("this is counter:" + j);
+        console.log("this is j counter:" + j);
 
       // if event does not exist, skip to next artist in array
       } else {
         console.log("no event available for this artist");
         j++;
+        
         // return runAjax();
       }
       

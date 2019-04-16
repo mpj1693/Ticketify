@@ -1,12 +1,3 @@
-
-// function spotifyLogin() {
-  
-//   var ridirect_uri = "http://localhost:8000";
-//   var client_id = "504f9537b7bf4a2d8f13c1b1917d23d5";
-//   var client_secret = "7abb69c766754c879af17b5346cd06f4";
-// }
-
-
 const spotify_CLIENT = "504f9537b7bf4a2d8f13c1b1917d23d5";
 
 let stateKey = 'spotify_auth_state';
@@ -106,69 +97,10 @@ if (access_token && (state == null || state !== storedState)) {
   }
 }
 
-// // turn on spotify player
-// window.onSpotifyWebPlaybackSDKReady = () => {
-
-//   const token = getHashParams().access_token;
-
-//   const player = new Spotify.Player({
-//     name: 'Web Playback SDK Quick Start Player',
-//     getOAuthToken: cb => {
-//       cb(token);
-//     }
-//   });
-
-//   // Error handling
-//   player.addListener('initialization_error', ({
-//     message
-//   }) => {
-//     console.error(message);
-//   });
-//   player.addListener('authentication_error', ({
-//     message
-//   }) => {
-//     console.error(message);
-//   });
-//   player.addListener('account_error', ({
-//     message
-//   }) => {
-//     console.error(message);
-//   });
-//   player.addListener('playback_error', ({
-//     message
-//   }) => {
-//     console.error(message);
-//   });
-
-//   // Playback status updates
-//   player.addListener('player_state_changed', state => {
-//     // console.log(state);
-//   });
-
-//   // Ready
-//   player.addListener('ready', ({
-//     device_id
-//   }) => {
-//     console.log('Ready with Device ID', device_id);
-//     playerId = device_id;
-//     setWebPlayer(device_id, access_token);
-//   });
-
-//   // Not Ready
-//   player.addListener('not_ready', ({
-//     device_id
-//   }) => {
-//     console.log('Device ID has gone offline', device_id);
-//   });
-
-//   // Connect to the player!
-//   player.connect();
-// };
-
 // LOG INTO SPOTIFY
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
-  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8000" : 'https://alexrosenkranz.github.io/spotify-auth';
+  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8000" : 'https://mpj1693.github.io/Ticketify/';
 
   // generate random state key
   const state = generateRandomString(16);
@@ -233,10 +165,9 @@ function printPlaylistInfo(playlistArray) {
   const $playlistInfo = $("#playlist-info");
   $playlistInfo.empty();
 
-  
   playlistArray.forEach(function (playlist) {
     $("<button>")
-      .addClass("list-group-item d-flex justify-content-between align-items-center playlist-button list-group-item-action")
+      .addClass("activ-playlist list-group-item d-flex justify-content-between align-items-center playlist-button list-group-item-action")
       .attr({
         "data-playlist-id": playlist.id,
         "data-playlist-uri": playlist.uri
@@ -257,7 +188,7 @@ function selectPlaylist() {
   $(this).addClass("active");
   const playlistId = $(this).attr("data-playlist-id");
   const playlistUri = $(this).attr("data-playlist-uri");
-  console.log(playlistId);
+  console.log(playlistId + "      what is this");
   $
     .ajax({
       url: `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`,
@@ -334,37 +265,6 @@ function printTrackInfo(trackArray, playlistContextUri) {
       .appendTo($trackInfo);
   });
 }
-
-// select and play track
-// function selectTrack() {
-//   $(".track-button").removeClass("active");
-//   $(this).addClass("active");
-//   const trackId = $(this).attr("data-track-uri");
-//   const contextUri = $(this).attr("data-context");
-//   console.log(trackId);
-//   $.ajax({
-//       url: `https://api.spotify.com/v1/me/player/play?device_id=${playerId}`,
-//       method: "PUT",
-//       data: JSON.stringify({
-//         "offset": {
-//           "uri": trackId
-//         },
-//         "context_uri": contextUri
-//       }),
-//       headers: {
-//         'Authorization': "Bearer " + access_token
-//       }
-//     })
-//     .then(function (response) {
-//       console.log(response);
-//       setTimeout(getCurrentSong, 1500);
-//       $("#play-button").attr("data-state", "play")
-//       $("#play-button > i").removeClass("fa-play").addClass("fa-pause");
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//     })
-// }
 
 // skip song
 function nextSong() {
@@ -476,6 +376,7 @@ function getCategories() {
     })
   });
 }
+
 // when selecting categories for playlists
 function selectCategories(event) {
 
@@ -508,7 +409,6 @@ function getFeaturedPlaylists() {
     printPlaylistInfo(response.playlists.items);
   })
 }
-
 
 // BIND CLICK EVENTS
 $(document)
