@@ -1,7 +1,7 @@
 // keywords extracted from spotify API 
 // for now, the elements are placeholders until linked with spotify API
 
-var keywordsArray = ["Khalid", "drake", "celine dion", "good kid", "sara bareilles"]
+uniqueArtistArray;
 
 
 
@@ -17,7 +17,7 @@ var stateCode = 'NY'
 var timer;
 
 // On click event to retrive event data from TicketMaster API
-$("button").on("click", function () {
+$("#buttons-area").on("click", function () {
   // settimeout to run at 2 sec interval
   timer = setTimeout(runAjax, 500);
 })
@@ -29,7 +29,7 @@ var j = 0;
 function runAjax() {
   $.ajax({
     type: "GET",
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=GUyA0G4teAjiouvRwk3D2sDwgEHUAaa6&size=1&keyword=${keywordsArray[j]}&stateCode=${stateCode}`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=GUyA0G4teAjiouvRwk3D2sDwgEHUAaa6&size=1&keyword=${uniqueArtistArray[j]}&stateCode=${stateCode}`,
     async: true,
     dataType: "json",
     success: function (json) {
@@ -37,13 +37,14 @@ function runAjax() {
 
 
       //url working?
-      console.log("keywordsArray[j]: " + keywordsArray[j])
+      console.log("artists in tm " + uniqueArtistArray)
       //console.log("URL: " + url);
 
       var TMresponse = json._embedded.events
 
       console.log(TMresponse)
 
+      
       //loop through TMresponse array and write each concert on page
       for (var i = 0; i < TMresponse.length; i++) {
         var $name;
@@ -119,7 +120,7 @@ function runAjax() {
 
     },
     complete: function (json) {
-      if (j === keywordsArray.length) {
+      if (j === uniqueArtistArray.length) {
         return clearTimeout(timer)
       }
       timer = setTimeout(runAjax, 500);
