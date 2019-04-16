@@ -249,6 +249,8 @@ function printPlaylistInfo(playlistArray) {
   con
 }
 
+var uniqueArtistArray;
+
 // get playlist tracks
 function selectPlaylist() {
   $(".playlist-button").removeClass("active");
@@ -286,7 +288,7 @@ function selectPlaylist() {
         artistList.forEach(artist => artistsArray.push(artist));
       });
       console.log(artistsArray);
-      var uniqueArtistArray = [...new Set(artistsArray)];
+      uniqueArtistArray = [...new Set(artistsArray)];
       console.log(uniqueArtistArray);
       printTrackInfo(trackInfo, playlistUri);
 
