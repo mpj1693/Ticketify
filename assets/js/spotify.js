@@ -168,7 +168,7 @@ if (access_token && (state == null || state !== storedState)) {
 // LOG INTO SPOTIFY
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
-  const redirect_uri = (location.hostname === "localhost") ? "http://localhost:8000" : 'https://alexrosenkranz.github.io/spotify-auth';
+  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8000" : 'https://alexrosenkranz.github.io/spotify-auth';
 
   // generate random state key
   const state = generateRandomString(16);
@@ -289,6 +289,23 @@ function selectPlaylist() {
       var uniqueArtistArray = [...new Set(artistsArray)];
       console.log(uniqueArtistArray);
       printTrackInfo(trackInfo, playlistUri);
+
+      function renderButtons() {
+
+        $('#buttons-area').empty();
+      
+        for (var i = 0; i < uniqueArtistArray.length; i++) {
+      
+          var a = $('<button>')
+          a.addClass('artist mr-2 mt-2 btn btn-outline-dark font-weight-bold');
+          a.attr('data-name', uniqueArtistArray[i]);
+          a.text(uniqueArtistArray[i]);
+          $('#buttons-area').append(a);
+        }
+      }
+
+      renderButtons();
+
     })
 }
 
