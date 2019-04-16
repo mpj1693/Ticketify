@@ -40,84 +40,94 @@ function runAjax() {
       console.log("artists in tm " + uniqueArtistArray)
       //console.log("URL: " + url);
 
-      var TMresponse = json._embedded.events
 
-      console.log(TMresponse)
 
+      // checking if ticketmaster API has event information for the artist
+      if (json.hasOwnProperty('_embedded')) {
+        var TMresponse = json._embedded.events
+
+        console.log(TMresponse)
+
+
+        //loop through TMresponse array and write each concert on page
+        for (var i = 0; i < TMresponse.length; i++) {
+          var $name;
+          var $venue;
+          var $date;
+          var $time;
+          var $priceRangeMin;
+          var $priceRangeMax;
+          var $btnTM;
+
+          if (TMresponse[i].hasOwnProperty('priceRanges')) {
+            $priceRangeMin = TMresponse[i].priceRanges[0].min;
+            $priceRangeMax = TMresponse[i].priceRanges[0].max;
+          } else {
+            $priceRangeMin = "NO DATA";
+            $priceRangeMax = "NO DATA";
+          };
+
+          if (TMresponse[i].hasOwnProperty('name')) {
+            $name = TMresponse[i].name;
+          } else {
+            $name = "no name"
+          };
+
+          if (TMresponse[i].hasOwnProperty('_embedded')) {
+            $venue = TMresponse[i]._embedded.venues[0].name;
+          } else {
+            $venue = "Venue TBD"
+          };
+
+          if (TMresponse[i].hasOwnProperty('dates')) {
+            $date = TMresponse[i].dates.start.localDate;
+          } else {
+            $date = "Date TBD"
+          };
+
+          if (TMresponse[i].hasOwnProperty('dates')) {
+            $time = TMresponse[i].dates.start.localTime;
+          } else {
+            $time = "Time TBD"
+          };
+
+          if (TMresponse[i].hasOwnProperty('url')) {
+            $btnTM = $("<a>").attr("href", TMresponse[i].url).attr("target", "_blank").text("ticketmaster").addClass("btn btn-outline-dark");
+          } else {
+            $btnTM = "No Event"
+          }
+
+          console.log($name);
+          console.log($venue);
+          console.log($date);
+          console.log($time);
+          console.log($priceRangeMin);
+          console.log($priceRangeMax);
+
+          // write on table
+          var newRow = $("<tr>").append(
+            $("<td>").text($name),
+            $("<td>").text($venue),
+            $("<td>").text($date),
+            $("<td>").text($time),
+            $("<td>").text($priceRangeMin + " - " + $priceRangeMax),
+            $("<td>").append($btnTM),
+          );
+
+          $("tbody").append(newRow);
+        };
+
+        // increase index counter
+        j++;
+        console.log("this is counter:" + j);
+
+      // if event does not exist, skip to next artist in array
+      } else {
+        console.log("no event available for this artist");
+        j++;
+        return runAjax();
+      }
       
-      //loop through TMresponse array and write each concert on page
-      for (var i = 0; i < TMresponse.length; i++) {
-        var $name;
-        var $venue;
-        var $date;
-        var $time;
-        var $priceRangeMin;
-        var $priceRangeMax;
-        var $btnTM;
-
-        if (TMresponse[i].hasOwnProperty('priceRanges')) {
-          $priceRangeMin = TMresponse[i].priceRanges[0].min;
-          $priceRangeMax = TMresponse[i].priceRanges[0].max;
-        } else {
-          $priceRangeMin = "NO DATA";
-          $priceRangeMax = "NO DATA";
-        };
-
-        if (TMresponse[i].hasOwnProperty('name')) {
-          $name = TMresponse[i].name;
-        } else {
-          $name = "no name"
-        };
-
-        if (TMresponse[i].hasOwnProperty('_embedded')) {
-          $venue = TMresponse[i]._embedded.venues[0].name;
-        } else {
-          $venue = "Venue TBD"
-        };
-
-        if (TMresponse[i].hasOwnProperty('dates')) {
-          $date = TMresponse[i].dates.start.localDate;
-        } else {
-          $date = "Date TBD"
-        };
-
-        if (TMresponse[i].hasOwnProperty('dates')) {
-          $time = TMresponse[i].dates.start.localTime;
-        } else {
-          $time = "Time TBD"
-        };
-
-        if (TMresponse[i].hasOwnProperty('url')) {
-          $btnTM = $("<a>").attr("href", TMresponse[i].url).attr("target", "_blank").text("ticketmaster").addClass("btn btn-outline-dark");
-        } else {
-          $btnTM = "No Event"
-        }
-
-        console.log($name);
-        console.log($venue);
-        console.log($date);
-        console.log($time);
-        console.log($priceRangeMin);
-        console.log($priceRangeMax);
-
-        // write on table
-        var newRow = $("<tr>").append(
-          $("<td>").text($name),
-          $("<td>").text($venue),
-          $("<td>").text($date),
-          $("<td>").text($time),
-          $("<td>").text($priceRangeMin + " - " + $priceRangeMax),
-          $("<td>").append($btnTM),
-        );
-
-        $("tbody").append(newRow);
-      };
-
-      // increase index counter
-      j++;
-      console.log("this is counter:" + j);
-
-
     },
     complete: function (json) {
       if (j === uniqueArtistArray.length) {
@@ -132,4 +142,3 @@ function runAjax() {
   })
 }
 
-//yc
