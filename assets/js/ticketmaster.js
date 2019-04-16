@@ -19,7 +19,7 @@ var timer;
 // On click event to retrive event data from TicketMaster API
 $("#buttons-area").on("click", function () {
   // settimeout to run at 2 sec interval
-  timer = setTimeout(runAjax, 500);
+  timer = setTimeout(runAjax, 1000);
 })
 
 
@@ -29,7 +29,7 @@ var j = 0;
 function runAjax() {
   $.ajax({
     type: "GET",
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=GUyA0G4teAjiouvRwk3D2sDwgEHUAaa6&size=1&keyword=${uniqueArtistArray[j]}&stateCode=${stateCode}`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=AEH5HGnHdiehb7Tei6mXUTXrULADEytJ&size=1&keyword=${uniqueArtistArray[j]}&stateCode=${stateCode}`,
     async: true,
     dataType: "json",
     success: function (json) {
@@ -125,15 +125,15 @@ function runAjax() {
       } else {
         console.log("no event available for this artist");
         j++;
-        return runAjax();
+        // return runAjax();
       }
       
     },
     complete: function (json) {
       if (j === uniqueArtistArray.length) {
-        return clearTimeout(timer)
+        return clearTimeout(timer);
       }
-      timer = setTimeout(runAjax, 500);
+      timer = setTimeout(runAjax, 1000);
       console.log("next iteration")
     },
     error: function (xhr, status, err) {
