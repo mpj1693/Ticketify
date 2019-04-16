@@ -44,7 +44,6 @@ function runAjax() {
 
       console.log(TMresponse)
 
-      
       //loop through TMresponse array and write each concert on page
       for (var i = 0; i < TMresponse.length; i++) {
         var $name;

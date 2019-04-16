@@ -1,4 +1,3 @@
-
 // function spotifyLogin() {
   
 //   var ridirect_uri = "http://localhost:8000";
