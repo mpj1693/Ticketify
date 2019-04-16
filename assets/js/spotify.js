@@ -168,7 +168,7 @@ if (access_token && (state == null || state !== storedState)) {
 // LOG INTO SPOTIFY
 function spotifyLogin() {
   const client_id = spotify_CLIENT; // Your client id
-  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8000" : 'https://alexrosenkranz.github.io/spotify-auth';
+  const redirect_uri = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? "http://localhost:8000" : 'https://mpj1693.github.io/Ticketify/';
 
   // generate random state key
   const state = generateRandomString(16);
