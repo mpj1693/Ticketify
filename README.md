@@ -31,7 +31,10 @@ This app allows users to insert their spotify music library, it then prompts use
 
 ## License
 [Young Chi]()
+
 [Manav Patel]()
+
 [Isabella T]()
+
 [Harsh Patel]()
 
