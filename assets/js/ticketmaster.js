@@ -41,6 +41,7 @@ function runAjax() {
       //console.log("URL: " + url);
 
 
+
       // checking if ticketmaster API has event information for the artist
       if (json.hasOwnProperty('_embedded')) {
         var TMresponse = json._embedded.events
