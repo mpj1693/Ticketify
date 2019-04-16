@@ -122,7 +122,7 @@ function runAjax() {
     },
     complete: function (json) {
       if (j === uniqueArtistArray.length) {
-        return clearTimeout(timer)
+        return clearTimeout(timer);
       }
       timer = setTimeout(runAjax, 1000);
       console.log("next iteration")
