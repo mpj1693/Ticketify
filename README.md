@@ -1,5 +1,4 @@
-# Ticketify
-## [NBA Trivia](https://harshpaddle.github.io/TriviaGame)
+# [Ticketify](https://harshpaddle.github.io/TriviaGame)
 Hello and welcome to **Ticketify**, a unique source to checkout upcoming concerts and music events hosted by the artists in your library.
 
 ## Motivation
