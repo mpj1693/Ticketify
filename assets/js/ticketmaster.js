@@ -12,13 +12,13 @@ var stateCode = 'NY'
 var timer;
 
 // On click event to retrive event data from TicketMaster API
-$("#click-for-concerts").on("click", function () {
-
+function runThisB() {
+  $("tBody").empty();
   console.log(uniqueArtistArray + "Artist in TM")
   
   // settimeout to run at 2 sec interval
   timer = setTimeout(runAjax, 1000);
-})
+}
 
 // index counter for array
 var j = 0;

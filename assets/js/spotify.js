@@ -121,6 +121,7 @@ function spotifyLogin() {
 
   // change pages and go to the spotify login page
   window.location = url;
+  $(".log-in").empty();
 }
 
 // SET SPOTIFY WEB PLAYER TO BROWSER
@@ -221,6 +222,7 @@ function selectPlaylist() {
       console.log(artistsArray);
       uniqueArtistArray = [...new Set(artistsArray)];
       console.log(uniqueArtistArray);
+      runThisB();
       printTrackInfo(trackInfo, playlistUri);
 
       function renderButtons() {
