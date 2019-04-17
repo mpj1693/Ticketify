@@ -14,6 +14,7 @@ var timer;
 // On click event to retrive event data from TicketMaster API
 function runThisB() {
   $("tBody").empty();
+  clearTimeout(timer);
   console.log(uniqueArtistArray + "Artist in TM")
   
   // settimeout to run at 2 sec interval
@@ -23,15 +24,24 @@ function runThisB() {
 // index counter for array
 var j = 0;
 
+var apis = ['IQ2JZuhOjXIfNkGRoCkLChGXzKnLKFfD', 'ZgTKxnsXBJV8G1kKNLNdrugm5wgmAufV', 'AEH5HGnHdiehb7Tei6mXUTXrULADEytJ', 'GUyA0G4teAjiouvRwk3D2sDwgEHUAaa6', 'Ek2ZU6zhhazpB5MKp0yUCYrT8EVrv7NN', 'A1WAXHis9a2xbpXiYCFwfeAFvsz3TCrl'];
+
+var randomIndex = Math.floor(Math.random() * apis.length);
+
+
+var randomApi = apis[randomIndex];
+
 function runAjax() {
+  randomIndex = Math.floor(Math.random() * 4);
+  randomApi = apis[randomIndex];
   $.ajax({
     type: "GET",
-    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=AEH5HGnHdiehb7Tei6mXUTXrULADEytJ&size=1&keyword=${uniqueArtistArray[j]}&stateCode=${stateCode}`,
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${randomApi}&size=1&keyword=${uniqueArtistArray[j]}&stateCode=${stateCode}`,
     async: true,
     dataType: "json",
     success: function (json) {
       console.log(json);
-
+      console.log(randomApi);
       // checking if ticketmaster API has event information for the artist
       if (json.hasOwnProperty('_embedded')) {
         var TMresponse = json._embedded.events
