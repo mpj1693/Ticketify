@@ -18,7 +18,7 @@ Music is obviously an important aspect of everyones lives, this app allows to us
 This app allows users to insert their spotify music library, it then prompts user to pick their favorite playlist which then genrates buttons of artists in that playlists. Clicking on particular artitst(button) will then generate upcoming events in a locatoin near them.
 
 ## Screenshots
-![a screenshot](//)
+![a screenshot](https://github.com/mpj1693/Ticketify/blob/master/assets/img/Screen%20Shot%202019-04-17%20at%208.46.44%20AM.png)
 
 ## How to use?
 1. Please select a location
@@ -34,7 +34,7 @@ This app allows users to insert their spotify music library, it then prompts use
 
 [Manav Patel]()
 
-[Isabella T]()
+[Isabella Torres]()
 
 [Harsh Patel]()
 
