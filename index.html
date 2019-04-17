@@ -20,17 +20,19 @@
       <h1 class="text-center">Ticketify</h1>
     </div>
   </div>
-  <div class="lil-header">
-    <h5 class="text-center text1">Check local concerts around the area!</h5>
-    <p class="log-in spotify-button">Log in with &nbsp &nbsp<button class="button button1 text-center"
-        id="login-button"><b>Spotify</b></button></p>
+  <div class="lil-header mt-4">
+    <div class="log-in-clear">
+      <h5 id='clear-it' class="text-center text1">Check local concerts in your area!</h5>
+      <p id="clear-it" class="log-in spotify-button">Log in with &nbsp &nbsp<button class="button button1 text-center"
+          id="login-button"><b>Spotify</b></button></p>
+    </div>
     <!-- End of spotifylogin -->
 
     <!-- After Log in -->
 
-    <div class="container-fluid my-5" id="app-body">
+    <div class="container container-fluid my-5 text-center" id="app-body">
       <div class="row">
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-4">
           <div id="profile-info">
 
           </div>
@@ -50,9 +52,9 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-9">
+        <div class="col-12 col-md-8">
           <div class="row" id="music_info">
-            <div class="col-12 col-md-6 mb-5">
+            <div class="col-12 col-md-7 mb-5">
               <div class="card">
                 <div class="card-header">
                   Select Playlist
@@ -62,16 +64,16 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-6 mb-5">
-              <div class="card">
+            <div class="col-12 col-md-4 mb-5 loading-gif">
+              <!-- <div class="card">
                 <div class="card-header">
                   Select Artist
                 </div>
-                <!-- <div class="list-group list-group-flush" id="track-info"> -->
+                <div class="list-group list-group-flush" id="track-info">
                 <div class="list-group list-group-flush" id="click-for-concerts">
                   click-for-concerts
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
