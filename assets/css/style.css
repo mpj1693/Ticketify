@@ -34,8 +34,12 @@ body {
   font-family: sans-serif;
   border-style: inset;
   padding-bottom: 10px;
- 
+  color: white;
 
+}
+
+.card-header {
+ color: black;
 }
 
 .h1, h1 {

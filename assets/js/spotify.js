@@ -121,7 +121,6 @@ function spotifyLogin() {
 
   // change pages and go to the spotify login page
   window.location = url;
-  $(".log-in").empty();
 }
 
 // SET SPOTIFY WEB PLAYER TO BROWSER
@@ -435,6 +434,7 @@ $(document)
     // $(document).on("click", ".track-button", selectTrack);
     // login button to get access token
     $('#login-button').on('click', spotifyLogin);
+    // $("#login-button").on('click', $(".log-in-clear").text(" "))
     $("#categories-list").on("change", selectCategories);
 
     if (!access_token) {
