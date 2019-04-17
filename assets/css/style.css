@@ -4,6 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-image: fixed;
   padding-left: 300px;
   padding-right: 300px;
   margin-top: 50px;
