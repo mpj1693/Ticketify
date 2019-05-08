@@ -1,4 +1,4 @@
-# [Ticketify](https://harshpaddle.github.io/TriviaGame)
+# [Ticketify](https://mpj1693.github.io/Ticketify/)
 Hello and welcome to **Ticketify**, a unique source to checkout upcoming concerts and music events hosted by the artists in your personal spotify library.
 
 ## Motivation
